@@ -5,7 +5,7 @@ import { fonts } from "../../theme";
 export default function Producto({ nombre, img }) {
   return (
     <div className="producto">
-      <img src={img ? img : "/productos/Harina.png"} />
+      <img src={img ? img : "/harina.png"} />
       <div>
         <h3>{nombre ? nombre : "Harina pan"}</h3>
         <p className="precio">

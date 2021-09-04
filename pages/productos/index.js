@@ -6,19 +6,19 @@ const todosProductos = [
   {
     nombre: "Harina",
     categoria: ["Embutidos"],
-    img: "/productos/harina.png",
+    img: "/harina.png",
     id: 1,
   },
   {
     nombre: "Un Vivere",
     categoria: ["Viveres"],
-    img: "/productos/harina.png",
+    img: "/harina.png",
     id: 2,
   },
   {
     nombre: "Queso",
     categoria: ["Charcutería"],
-    img: "/productos/queso.png",
+    img: "/queso.png",
     id: 3,
   },
 ];
