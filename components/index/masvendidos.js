@@ -16,7 +16,7 @@ export default function MasVendidos() {
           <Link href="#">
             <a>Ver los productos</a>
           </Link>
-          <img src="/productos/Harina.png" />
+          <img src="/harina.png" />
         </div>
       </div>
       <div className="mas-vendidos--1 posicion-3">
@@ -33,7 +33,7 @@ export default function MasVendidos() {
           <Link href="#">
             <a style={{ border: "2px solid #0002" }}>Ver los productos</a>
           </Link>
-          <img src="/productos/Harina.png" />
+          <img src="/harina.png" />
         </div>
       </div>
       <style jsx>{`
