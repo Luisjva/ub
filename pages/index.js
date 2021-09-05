@@ -4,29 +4,44 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [height, setHeight] = useState(0);
   const [heightActual, setHeightActual] = useState(0);
+  const [slider, setSlider] = useState(0);
   useEffect(() => {
     let heightNav = 16 * 3;
     let heightDom = innerHeight;
     setHeight(heightDom - heightNav);
+    let sliderActual = 0;
+    setSlider(sliderActual);
   }, []);
 
   const changeScroll = () => {
     setTimeout(() => {
       let heightNav = 16 * 3;
       let heightDom = innerHeight;
-      console.log("El dom mide: " + heightDom);
       let heightAhora = heightDom - heightNav;
+
+      let sliderActual = slider;
+
       let scroll = null;
 
       if (window.scrollY > heightActual) {
-        scroll = heightActual + heightAhora;
+        sliderActual < 3
+          ? (sliderActual = sliderActual + 1)
+          : (sliderActual = 3);
+        scroll = heightAhora * sliderActual;
+        console.log(sliderActual);
       } else if (window.scrollY < heightActual) {
-        scroll = heightActual - heightAhora;
+        sliderActual > 0
+          ? (sliderActual = sliderActual - 1)
+          : (sliderActual = 0);
+        scroll = heightAhora * sliderActual;
+        console.log(sliderActual);
       }
 
       window.scroll(0, scroll);
+
       setHeight(heightAhora);
       setHeightActual(scroll);
+      setSlider(sliderActual);
     }, 300);
   };
 
