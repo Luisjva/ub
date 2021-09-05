@@ -55,19 +55,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="slider-1" style={{ height: height + "px" }}>
-        <h1>
-          ULTRA
-          <br />
-          BODEGON
-        </h1>
+        <div className="slider-1__principal">
+          <h1>
+            ULTRA
+            <br />
+            BODEGON
+          </h1>
+        </div>
+        <div className="slider-1__contacto"></div>
       </div>
       <div className="slider-2" style={{ height: height + "px" }}>
-        <h2>Trabajamos</h2>
-        <p>para un bien mayor en nuestras comunidades</p>
-        <h2>Nos hacemos cargo</h2>
-        <p>de llevar el sustento a todos los venezolanos</p>
-        <h2>Somos receptivos</h2>
-        <p>a las necesidades básicas de los venezolanos</p>
+        <div>
+          <h2>Trabajamos</h2>
+          <p>para un bien mayor en nuestras comunidades</p>
+        </div>
+        <div>
+          <h2>Nos hacemos cargo</h2>
+          <p>de llevar el sustento a todos los venezolanos</p>
+        </div>
+        <div>
+          <h2>Somos receptivos</h2>
+          <p>a las necesidades básicas de los venezolanos</p>
+        </div>
       </div>
       <div
         style={{
@@ -93,15 +102,23 @@ export default function Home() {
       </div>
       <style jsx>{`
         .slider-1 {
-          align-items: center;
           background: #333;
           color: #fff;
+          display: grid;
+          grid-template-areas: "principal" "contacto";
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 3rem;
+        }
+
+        .slider-1__principal {
+          align-items: center;
           display: flex;
           justify-content: center;
+          text-align: center;
         }
 
         .slider-1 > h1 {
-          font-size: 3rem;
+          font-size: 2.5rem;
           text-align: center;
         }
 
@@ -112,6 +129,11 @@ export default function Home() {
           justify-content: center;
           text-align: center;
           padding: 0 5%;
+          padding-bottom: 3rem;
+        }
+
+        .slider-2 div {
+          margin: 1rem 0;
         }
       `}</style>
     </div>
