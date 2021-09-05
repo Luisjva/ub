@@ -6,6 +6,9 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <div className="cuerpo">
+      <Head>
+        <meta name="theme-color" content="#222" />
+      </Head>
       <div>
         <Nav />
       </div>

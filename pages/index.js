@@ -94,7 +94,7 @@ export default function Home() {
       <style jsx>{`
         .slider-1 {
           align-items: center;
-          background: #444;
+          background: #333;
           color: #fff;
           display: flex;
           justify-content: center;
