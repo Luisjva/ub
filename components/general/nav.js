@@ -56,7 +56,8 @@ export default function Nav() {
           display: flex;
           justify-content: space-between;
           padding: 0 0.5rem;
-          position: relative;
+          position: fixed;
+          width: 100%;
           z-index: 100;
         }
 

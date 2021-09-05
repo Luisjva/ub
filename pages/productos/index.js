@@ -40,9 +40,8 @@ export default function Productos() {
       setProductos(todosProductos);
     } else {
       let nuevo = [];
-      /*
       setProductos([]);
-      */
+
       for (let i = 0; i < todosProductos.length; i++) {
         let p = todosProductos[i].nombre;
         let b = busqueda;

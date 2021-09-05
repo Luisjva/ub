@@ -15,9 +15,20 @@ export default function Producto({ nombre, img }) {
       </div>
       <style jsx>{`
         .producto {
+          animation-duration: 0.3s;
+          animation-name: fade;
           margin: 0.5rem;
-          transition: 0.3s;
+          transition: 0.5s;
           width: auto;
+        }
+
+        @keyframes fade {
+          0% {
+            opacity: 0.4;
+          }
+          100 {
+            opacity: 0.1;
+          }
         }
 
         .producto > img {

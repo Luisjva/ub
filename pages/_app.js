@@ -5,10 +5,20 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Nav />
+    <div className="cuerpo">
+      <div className="">
+        <Nav />
+      </div>
       <Component {...pageProps} />
-    </>
+      <style jsx>{`
+        .cuerpo {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 3rem auto;
+          grid-template-areas: "nav";
+        }
+      `}</style>
+    </div>
   );
 }
 
