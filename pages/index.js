@@ -12,17 +12,22 @@ export default function Home() {
 
   const changeScroll = () => {
     setTimeout(() => {
+      let heightNav = 16 * 3;
+      let heightDom = innerHeight;
+      console.log("El dom mide: " + heightDom);
+      let heightAhora = heightDom - heightNav;
       let scroll = null;
 
       if (window.scrollY > heightActual) {
-        scroll = heightActual + height;
+        scroll = heightActual + heightAhora;
       } else if (window.scrollY < heightActual) {
-        scroll = heightActual - height;
+        scroll = heightActual - heightAhora;
       }
 
       window.scroll(0, scroll);
+      setHeight(heightAhora);
       setHeightActual(scroll);
-    }, 200);
+    }, 300);
   };
 
   return (
