@@ -12,7 +12,7 @@ const todosProductos = [
   {
     nombre: "Un Vivere",
     categoria: ["Viveres"],
-    img: "/harina.png",
+    img: "/viveres.png",
     id: 2,
   },
   {
@@ -20,6 +20,42 @@ const todosProductos = [
     categoria: ["Charcutería"],
     img: "/queso.png",
     id: 3,
+  },
+  {
+    nombre: "Harina pan",
+    categoria: ["Embutidos"],
+    img: "/harina.png",
+    id: 4,
+  },
+  {
+    nombre: "Otro Vivere",
+    categoria: ["Viveres"],
+    img: "/viveres.png",
+    id: 5,
+  },
+  {
+    nombre: "Jamon",
+    categoria: ["Charcutería"],
+    img: "/queso.png",
+    id: 6,
+  },
+  {
+    nombre: "Harina de trigo",
+    categoria: ["Embutidos"],
+    img: "/harina.png",
+    id: 7,
+  },
+  {
+    nombre: "Vivere",
+    categoria: ["Viveres"],
+    img: "/viveres.png",
+    id: 8,
+  },
+  {
+    nombre: "Mortadela",
+    categoria: ["Charcutería"],
+    img: "/queso.png",
+    id: 9,
   },
 ];
 
@@ -36,18 +72,16 @@ export default function Productos() {
   };
 
   useEffect(() => {
+    setProductos([]);
+    let nuevo = [];
     if (categoria == "Todo" && busqueda == "") {
-      setProductos(todosProductos);
+      nuevo = todosProductos;
     } else {
-      let nuevo = [];
-      setProductos([]);
-
       for (let i = 0; i < todosProductos.length; i++) {
         let p = todosProductos[i].nombre;
         let b = busqueda;
         p = p.toLowerCase();
         b = b.toLowerCase();
-        console.log(p, b);
         if (categoria == "Todo" && p.includes(b)) {
           nuevo.push(todosProductos[i]);
         } else if (p.includes(b)) {
@@ -55,8 +89,8 @@ export default function Productos() {
             nuevo.push(todosProductos[i]);
         }
       }
-      setProductos(nuevo);
     }
+    setProductos(nuevo);
   }, [busqueda, categoria]);
 
   return (

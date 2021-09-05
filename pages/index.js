@@ -129,7 +129,6 @@ export default function Home() {
           justify-content: center;
           text-align: center;
           padding: 0 5%;
-          padding-bottom: 3rem;
         }
 
         .slider-2 div {
