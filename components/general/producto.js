@@ -51,6 +51,7 @@ export default function Producto({ nombre, img }) {
           font-size: 1.5rem;
           margin-block-start: 0.5rem;
           margin-block-end: 0.5rem;
+          text-align: center;
         }
 
         p {

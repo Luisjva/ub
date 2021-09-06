@@ -62,7 +62,7 @@ const todosProductos = [
 export default function Productos() {
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("Todo");
-  const [productos, setProductos] = useState(todosProductos);
+  const [productos, setProductos] = useState([]);
   const changeInput = (e) => {
     setBusqueda(e.target.value);
   };
@@ -71,12 +71,37 @@ export default function Productos() {
     setCategoria(e.target.value);
   };
 
+  const getQueryVariable = (variable) => {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) {
+        return pair[1];
+      }
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    if (getQueryVariable("cat")) {
+      setCategoria(getQueryVariable("cat"));
+    } else {
+      setCategoria("Todo");
+    }
+  }, []);
+
   useEffect(() => {
     setProductos([]);
     let nuevo = [];
     if (categoria == "Todo" && busqueda == "") {
       nuevo = todosProductos;
-    } else {
+    } else if (
+      categoria == "Todo" ||
+      categoria == "Viveres" ||
+      categoria == "Charcutería" ||
+      categoria == "Embutidos"
+    ) {
       for (let i = 0; i < todosProductos.length; i++) {
         let p = todosProductos[i].nombre;
         let b = busqueda;
@@ -89,6 +114,9 @@ export default function Productos() {
             nuevo.push(todosProductos[i]);
         }
       }
+    } else {
+      nuevo = todosProductos;
+      setCategoria("Todo");
     }
     setProductos(nuevo);
   }, [busqueda, categoria]);

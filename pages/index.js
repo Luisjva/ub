@@ -1,7 +1,8 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
 
-import { colors, fonts } from "../theme";
+import Producto from "../components/general/producto";
 
 export default function Home() {
   const [height, setHeight] = useState(0);
@@ -16,35 +17,36 @@ export default function Home() {
   }, []);
 
   const changeScroll = () => {
-    setTimeout(() => {
-      let heightNav = 16 * 3;
-      let heightDom = innerHeight;
-      let heightAhora = heightDom - heightNav;
+    setTimeout(
+      () => {
+        let heightNav = 16 * 3;
+        let heightDom = innerHeight;
+        let heightAhora = heightDom - heightNav;
 
-      let sliderActual = slider;
+        let sliderActual = slider;
 
-      let scroll = null;
+        let scroll = null;
 
-      if (window.scrollY > heightActual) {
-        sliderActual < 3
-          ? (sliderActual = sliderActual + 1)
-          : (sliderActual = 3);
-        scroll = heightAhora * sliderActual;
-        console.log(sliderActual);
-      } else if (window.scrollY < heightActual) {
-        sliderActual > 0
-          ? (sliderActual = sliderActual - 1)
-          : (sliderActual = 0);
-        scroll = heightAhora * sliderActual;
-        console.log(sliderActual);
-      }
+        if (window.scrollY > heightActual) {
+          sliderActual < 3
+            ? (sliderActual = sliderActual + 1)
+            : (sliderActual = 3);
+          scroll = heightAhora * sliderActual;
+        } else if (window.scrollY < heightActual) {
+          sliderActual > 0
+            ? (sliderActual = sliderActual - 1)
+            : (sliderActual = 0);
+          scroll = heightAhora * sliderActual;
+        }
 
-      window.scroll(0, scroll);
+        window.scroll(0, scroll);
 
-      setHeight(heightAhora);
-      setHeightActual(scroll);
-      setSlider(sliderActual);
-    }, 800);
+        setHeight(heightAhora);
+        setHeightActual(scroll);
+        setSlider(sliderActual);
+      },
+      innerWidth < 450 ? 400 : 800
+    );
   };
 
   return (
@@ -78,16 +80,31 @@ export default function Home() {
           <p>a las necesidades básicas de los venezolanos</p>
         </div>
       </div>
-      <div
-        style={{
-          background: "#789",
-          height: height + "px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h1>Es</h1>
+      <div className="slider-3" style={{ height: height + "px" }}>
+        <div className="slider-3__contenedor">
+          <div className="p1">
+            <Producto />
+          </div>
+          <div className="p2">
+            <h3>
+              Si no lo tenemos, lo conseguimos
+              <br />
+              Si no lo conseguimos, lo fabricamos
+            </h3>
+            <Link href="/productos">
+              <a>Ver todos los productos</a>
+            </Link>
+          </div>
+          <div className="p3">
+            <Producto />
+          </div>
+          <div className="p4">
+            <Producto />
+          </div>
+          <div className="p5">
+            <Producto />
+          </div>
+        </div>
       </div>
       <div
         style={{
@@ -98,8 +115,9 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <h1>Prueba</h1>
+        <h1>Un grano de arena</h1>
       </div>
+      <div style={{ height: height / 2 + "px" }}></div>
       <style jsx>{`
         .slider-1 {
           background: #333;
@@ -133,6 +151,58 @@ export default function Home() {
 
         .slider-2 div {
           margin: 1rem 0;
+        }
+
+        .slider-3 {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+        }
+
+        .slider-3__contenedor {
+          display: grid;
+          grid-template-areas:
+            "p1 p2 p2"
+            "p3 p4 p5";
+          grid-template-columns: repeat(3, 1fr);
+          margin: 1rem;
+        }
+
+        .p1 {
+          grid-area: p1;
+        }
+        .p2 {
+          align-items: center;
+          background: #444;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          grid-area: p2;
+          justify-content: center;
+          padding: 0.7rem;
+          text-align: center;
+        }
+        .p2 > h3 {
+          margin-block-start: 01rem;
+          margin-block-end: 1rem;
+        }
+        .p2 a {
+          border: 2px solid #fff4;
+          padding: 0.5rem;
+          transition: .3s;
+        }
+        .p2 a:hover {
+          background: #fff4;
+          border-color: transparent:
+        }
+        .p3 {
+          grid-area: p3;
+        }
+        .p4 {
+          grid-area: p4;
+        }
+        .p5 {
+          grid-area: p5;
         }
       `}</style>
     </div>
