@@ -14,30 +14,6 @@ export default function SliderH(props) {
     console.log(html);
     if (html.includes("catalogo")) {
       contenedor.scroll(0, 0);
-      setTimeout(() => {
-        window.scroll(0, props.height);
-      }, 200);
-    } else if (html.includes("centro")) {
-      contenedor.scroll(props.width, 0);
-      setTimeout(() => {
-        window.scroll(0, props.height);
-      }, 200);
-    } else if (html.includes("aporte")) {
-      contenedor.scroll(props.width * 2, 0);
-      setTimeout(() => {
-        window.scroll(0, props.height);
-      }, 200);
-    } else {
-      props.scrollArriba();
-    }
-  };
-
-  const scrollHorizontalPc = (e) => {
-    console.log(e);
-    let html = e.target.id;
-    console.log(html);
-    if (html.includes("catalogo")) {
-      contenedor.scroll(0, 0);
     } else if (html.includes("centro")) {
       contenedor.scroll(props.width, 0);
     } else if (html.includes("aporte")) {
@@ -51,7 +27,7 @@ export default function SliderH(props) {
     setTimeout(() => {
       contenedor.scroll(widthActual, 0);
       setWidth(widthActual);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
@@ -86,7 +62,7 @@ export default function SliderH(props) {
           </div>
         </div>
         <div className="link">
-          <p id="centro" onClick={scrollHorizontalPc} className="link__flecha">
+          <p id="centro" onClick={scrollHorizontal} className="link__flecha">
             <span id="centro">&#62;</span>
           </p>
         </div>
@@ -107,14 +83,10 @@ export default function SliderH(props) {
           </div>
         </div>
         <div className="link">
-          <p
-            id="catalogo"
-            onClick={scrollHorizontalPc}
-            className="link__flecha"
-          >
+          <p id="catalogo" onClick={scrollHorizontal} className="link__flecha">
             <span id="catalogo">&#60;</span> Catalogo
           </p>
-          <p id="aporte" onClick={scrollHorizontalPc} className="link__flecha">
+          <p id="aporte" onClick={scrollHorizontal} className="link__flecha">
             Aporte <span id="aporte">&#62;</span>
           </p>
         </div>
@@ -127,7 +99,7 @@ export default function SliderH(props) {
         }}
       >
         <div className="link">
-          <p id="centro" onClick={scrollHorizontalPc} className="link__flecha">
+          <p id="centro" onClick={scrollHorizontal} className="link__flecha">
             <span id="centro">&#60;</span>
           </p>
         </div>
