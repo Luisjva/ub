@@ -129,6 +129,10 @@ export default function SliderH(props) {
           width: 100%;
         }
 
+        .link {
+          user-select: none;
+        }
+
         .slider-1 .link {
           display: flex;
           justify-content: flex-end;
