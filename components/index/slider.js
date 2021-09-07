@@ -77,7 +77,11 @@ export default function SliderH(props) {
           </div>
         </div>
         <div className="link">
-          <p onClick={scrollHorizontalTelefono} className="link__flecha">
+          <p
+            id="centro"
+            onClick={scrollHorizontalTelefono}
+            className="link__flecha"
+          >
             <span id="centro">&#62;</span>
           </p>
         </div>
@@ -98,10 +102,18 @@ export default function SliderH(props) {
           </div>
         </div>
         <div className="link">
-          <p onClick={scrollHorizontalTelefono} className="link__flecha">
+          <p
+            id="catalogo"
+            onClick={scrollHorizontalTelefono}
+            className="link__flecha"
+          >
             <span id="catalogo">&#60;</span> Catalogo
           </p>
-          <p onClick={scrollHorizontalTelefono} className="link__flecha">
+          <p
+            id="aporte"
+            onClick={scrollHorizontalTelefono}
+            className="link__flecha"
+          >
             Aporte <span id="aporte">&#62;</span>
           </p>
         </div>
@@ -114,7 +126,11 @@ export default function SliderH(props) {
         }}
       >
         <div className="link">
-          <p onClick={scrollHorizontalTelefono} className="link__flecha">
+          <p
+            id="centro"
+            onClick={scrollHorizontalTelefono}
+            className="link__flecha"
+          >
             <span id="centro">&#60;</span>
           </p>
         </div>
@@ -202,6 +218,7 @@ export default function SliderH(props) {
 
         .link__flecha {
           align-items: center;
+          cursor: pointer;
           display: flex;
           font-size: 1.2rem;
           margin-block-start: 0;
@@ -209,7 +226,6 @@ export default function SliderH(props) {
         }
 
         .link__flecha > span {
-          cursor: pointer;
           font-size: 3rem;
           margin: .3rem;
         }

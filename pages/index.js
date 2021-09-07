@@ -107,7 +107,7 @@ export default function Home() {
       >
         <SliderH height={height} width={width} scrollArriba={scrollMovil} />
       </div>
-      <div style={{ height: height / 2 + "px" }}></div>
+      <div style={{ height: height / 10 + "px" }}></div>
       <style jsx>{`
         .slider-1 {
           background: #333;
