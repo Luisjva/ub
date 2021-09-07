@@ -16,6 +16,9 @@ export default function SliderH(props) {
     } else if (html.includes("aporte")) {
       contenedor.scroll(widthActual * 2, 0);
     }
+    setTimeout(() => {
+      window.scroll(0, props.height);
+    }, 300);
   };
 
   useEffect(() => {

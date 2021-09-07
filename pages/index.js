@@ -74,7 +74,7 @@ export default function Home() {
         .slider-1 > p {
           animation-delay: 0.5s;
           animation-duration: 3s;
-          animation-iteration-count: 3;
+          animation-iteration-count: infinite;
           animation-name: flecha;
           bottom: 5%;
           cursor: pointer;
