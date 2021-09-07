@@ -73,8 +73,6 @@ export default function Home() {
 
     window.scroll(0, scroll);
 
-    setTimeout(() => window.scroll(0, scroll), 1500);
-
     setHeight(heightAhora);
     setWidth(innerWidth);
     setHeightActual(scroll);
