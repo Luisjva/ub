@@ -9,7 +9,6 @@ export default function SliderH(props) {
   const scrollHorizontal = (e) => {
     let widthActual = innerWidth;
     let html = e.target.id;
-    console.log(html);
     if (html.includes("catalogo")) {
       contenedor.scroll(0, 0);
     } else if (html.includes("centro")) {
