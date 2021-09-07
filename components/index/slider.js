@@ -11,14 +11,15 @@ export default function SliderH(props) {
     let html = e.target.id;
     if (html.includes("catalogo")) {
       contenedor.scroll(0, 0);
+      window.scroll(0, props.height);
+      setTimeout(() => {}, 300);
     } else if (html.includes("centro")) {
       contenedor.scroll(widthActual, 0);
     } else if (html.includes("aporte")) {
       contenedor.scroll(widthActual * 2, 0);
-    }
-    setTimeout(() => {
       window.scroll(0, props.height);
-    }, 300);
+      setTimeout(() => {}, 300);
+    }
   };
 
   useEffect(() => {
