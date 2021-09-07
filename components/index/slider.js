@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import Producto from "../../components/general/producto";
+import Productos from "../../pages/productos/index";
 
 let contenedor = null;
 
 export default function SliderH(props) {
-  const [width, setWidth] = useState(0);
-
   const scrollHorizontal = (e) => {
-    console.log(e);
+    let widthActual = innerWidth;
     let html = e.target.id;
     console.log(html);
     if (html.includes("catalogo")) {
       contenedor.scroll(0, 0);
     } else if (html.includes("centro")) {
-      contenedor.scroll(props.width, 0);
+      contenedor.scroll(widthActual, 0);
     } else if (html.includes("aporte")) {
-      contenedor.scroll(props.width * 2, 0);
+      contenedor.scroll(widthActual * 2, 0);
     }
   };
 
@@ -26,8 +24,7 @@ export default function SliderH(props) {
     contenedor = document.querySelector(".div");
     setTimeout(() => {
       contenedor.scroll(widthActual, 0);
-      setWidth(widthActual);
-    }, 500);
+    }, 200);
   }, []);
 
   return (
@@ -37,37 +34,24 @@ export default function SliderH(props) {
       style={{ height: props.height, overflowX: "hidden" }}
     >
       <div className="slider-1">
-        <div className="slider-1__contenedor">
-          <div className="p1">
-            <Producto />
-          </div>
-          <div className="p2">
-            <h3>
-              Si no lo tenemos, lo conseguimos
-              <br />
-              Si no lo conseguimos, lo fabricamos
-            </h3>
-            <Link href="/productos">
-              <a>Ver todos los productos</a>
-            </Link>
-          </div>
-          <div className="p3">
-            <Producto />
-          </div>
-          <div className="p4">
-            <Producto />
-          </div>
-          <div className="p5">
-            <Producto />
-          </div>
-        </div>
         <div className="link">
           <p id="centro" onClick={scrollHorizontal} className="link__flecha">
             <span id="centro">&#62;</span>
           </p>
         </div>
+        <div className="slider-1__contenedor">
+          <Productos />
+        </div>
       </div>
       <div className="slider-2">
+        <div className="link">
+          <p id="catalogo" onClick={scrollHorizontal} className="link__flecha">
+            <span id="catalogo">&#60;</span> Catalogo
+          </p>
+          <p id="aporte" onClick={scrollHorizontal} className="link__flecha">
+            Aporte <span id="aporte">&#62;</span>
+          </p>
+        </div>
         <div className="slider-2__contenedor">
           <div className="slider-2__div">
             <h2>Trabajamos</h2>
@@ -82,19 +66,11 @@ export default function SliderH(props) {
             <p>a las necesidades básicas de los venezolanos</p>
           </div>
         </div>
-        <div className="link">
-          <p id="catalogo" onClick={scrollHorizontal} className="link__flecha">
-            <span id="catalogo">&#60;</span> Catalogo
-          </p>
-          <p id="aporte" onClick={scrollHorizontal} className="link__flecha">
-            Aporte <span id="aporte">&#62;</span>
-          </p>
-        </div>
       </div>
       <div
         style={{
           height: props.height - 100 + "px",
-          width: props.width + "px",
+          width: "100vw",
           background: "#888",
         }}
       >
@@ -116,6 +92,7 @@ export default function SliderH(props) {
 
         .link {
           user-select: none;
+          padding: 0 5%;
         }
 
         .slider-1 .link {
@@ -125,19 +102,13 @@ export default function SliderH(props) {
 
         .slider-1 {
           display: grid;
-          grid-template-rows: auto 3rem;
+          grid-template-rows: 3rem auto;
           height: ${props.height + "px"};
-          padding: 0 5%;
-          width: ${props.width + "px"};
+          width: 100vw;
           }
 
         .slider-1__contenedor {
-          display: grid;
-          grid-template-areas:
-            "p1 p2 p2"
-            "p3 p4 p5";
-          grid-template-columns: repeat(3, 1fr);
-          margin: 1rem;
+          overflow-y: auto;
         }
 
         .p1 {grid-area: p1;}
@@ -161,11 +132,11 @@ export default function SliderH(props) {
 
         .slider-2 {
           display: grid;
-          grid-template-rows: auto 3rem;
+          grid-template-rows: 3rem auto;
           height: ${props.height + "px"};
           text-align: center;
           padding: 0 5%;
-          width: ${props.width + "px"};
+          width: 100vw;
         }
 
         .slider-2 .link {

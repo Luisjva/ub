@@ -111,70 +111,53 @@ export default function Productos() {
   }, [busqueda, categoria]);
 
   return (
-    <>
-      <header>
-        <p>Nos encargamos de darle sustento a cada una de los venezolanos</p>
-      </header>
-      <main>
-        <div className="categorias">
-          <button
-            value="Todo"
-            onClick={changeCategoria}
-            className={categoria == "Todo" ? "actual" : ""}
-          >
-            Todo
-          </button>
-          <button
-            value="Viveres"
-            onClick={changeCategoria}
-            className={categoria == "Viveres" ? "actual" : ""}
-          >
-            Viveres
-          </button>
-          <button
-            value="Charcutería"
-            onClick={changeCategoria}
-            className={categoria == "Charcutería" ? "actual" : ""}
-          >
-            Charcutería
-          </button>
-          <button
-            value="Embutidos"
-            onClick={changeCategoria}
-            className={categoria == "Embutidos" ? "actual" : ""}
-          >
-            Embutidos
-          </button>
-        </div>
+    <main>
+      <div className="categorias">
+        <button
+          value="Todo"
+          onClick={changeCategoria}
+          className={categoria == "Todo" ? "actual" : ""}
+        >
+          Todo
+        </button>
+        <button
+          value="Viveres"
+          onClick={changeCategoria}
+          className={categoria == "Viveres" ? "actual" : ""}
+        >
+          Viveres
+        </button>
+        <button
+          value="Charcutería"
+          onClick={changeCategoria}
+          className={categoria == "Charcutería" ? "actual" : ""}
+        >
+          Charcutería
+        </button>
+        <button
+          value="Embutidos"
+          onClick={changeCategoria}
+          className={categoria == "Embutidos" ? "actual" : ""}
+        >
+          Embutidos
+        </button>
+      </div>
 
-        <input value={busqueda} onChange={changeInput} placeholder="Buscar" />
+      <input value={busqueda} onChange={changeInput} placeholder="Buscar" />
 
-        <div className="productos">
-          {productos.map(function (producto) {
-            return (
-              <Producto
-                key={producto.id}
-                nombre={producto.nombre}
-                img={producto.img}
-              />
-            );
-          })}
-        </div>
-      </main>
+      <div className="productos">
+        {productos.map(function (producto) {
+          return (
+            <Producto
+              key={producto.id}
+              nombre={producto.nombre}
+              img={producto.img}
+            />
+          );
+        })}
+      </div>
 
       <style jsx>{`
-        header {
-          align-items: center;
-          background-image: url("/bg.jpg");
-          background-size: cover;
-          color: #fff;
-          display: flex;
-          font-size: 1.5rem;
-          height: 15rem;
-          text-align: center;
-          padding: 0 15%;
-        }
-
         input {
           border: 1px solid #0003;
           border-radius: 5px;
@@ -214,6 +197,6 @@ export default function Productos() {
           grid-template-columns: 1fr 1fr;
         }
       `}</style>
-    </>
+    </main>
   );
 }
