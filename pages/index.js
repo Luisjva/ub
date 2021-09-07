@@ -73,6 +73,8 @@ export default function Home() {
 
     window.scroll(0, scroll);
 
+    setTimeout(() => window.scroll(0, scroll), 500);
+
     setHeight(heightAhora);
     setWidth(innerWidth);
     setHeightActual(scroll);
@@ -105,7 +107,7 @@ export default function Home() {
           height: height + "px",
         }}
       >
-        <SliderH height={height} width={width} scrollArriba={changeScroll} />
+        <SliderH height={height} width={width} scrollArriba={scrollMovil} />
       </div>
       <div style={{ height: height / 2 + "px" }}></div>
       <style jsx>{`
