@@ -14,16 +14,25 @@ export default function SliderH(props) {
     console.log(html);
     if (html.includes("catalogo")) {
       contenedor.scroll(0, 0);
+      setTimeout(() => {
+        window.scroll(0, props.height);
+      }, 200);
     } else if (html.includes("centro")) {
       contenedor.scroll(props.width, 0);
+      setTimeout(() => {
+        window.scroll(0, props.height);
+      }, 200);
     } else if (html.includes("aporte")) {
       contenedor.scroll(props.width * 2, 0);
+      setTimeout(() => {
+        window.scroll(0, props.height);
+      }, 200);
     } else {
       props.scrollArriba();
     }
   };
 
-  const scrollHorizontalTelefono = (e) => {
+  const scrollHorizontalPc = (e) => {
     console.log(e);
     let html = e.target.id;
     console.log(html);
@@ -77,11 +86,7 @@ export default function SliderH(props) {
           </div>
         </div>
         <div className="link">
-          <p
-            id="centro"
-            onClick={scrollHorizontalTelefono}
-            className="link__flecha"
-          >
+          <p id="centro" onClick={scrollHorizontalPc} className="link__flecha">
             <span id="centro">&#62;</span>
           </p>
         </div>
@@ -104,16 +109,12 @@ export default function SliderH(props) {
         <div className="link">
           <p
             id="catalogo"
-            onClick={scrollHorizontalTelefono}
+            onClick={scrollHorizontalPc}
             className="link__flecha"
           >
             <span id="catalogo">&#60;</span> Catalogo
           </p>
-          <p
-            id="aporte"
-            onClick={scrollHorizontalTelefono}
-            className="link__flecha"
-          >
+          <p id="aporte" onClick={scrollHorizontalPc} className="link__flecha">
             Aporte <span id="aporte">&#62;</span>
           </p>
         </div>
@@ -126,11 +127,7 @@ export default function SliderH(props) {
         }}
       >
         <div className="link">
-          <p
-            id="centro"
-            onClick={scrollHorizontalTelefono}
-            className="link__flecha"
-          >
+          <p id="centro" onClick={scrollHorizontalPc} className="link__flecha">
             <span id="centro">&#60;</span>
           </p>
         </div>
