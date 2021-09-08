@@ -70,20 +70,38 @@ export default function SliderH(props) {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          height: props.height - 100 + "px",
-          width: "100vw",
-          background: "#888",
-        }}
-      >
+      <div className="slider-3">
         <div className="link">
           <p id="centro" onClick={scrollHorizontal} className="link__flecha">
-            <span id="centro">&#60;</span>
+            <span className="link__izq" id="centro">
+              &#60;
+            </span>
           </p>
         </div>
       </div>
       <style jsx>{`
+        .link {
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          padding: 0 5%;
+          user-select: none;
+        }
+
+        .link__flecha {
+          align-items: center;
+          cursor: pointer;
+          display: flex;
+          font-size: 1.4rem;
+          margin-block-start: 0;
+          margin-block-end: 0;
+        }
+
+        .link__flecha > span {
+          font-size: 3.3rem;
+          margin: 0.3rem;
+        }
+
         .div {
           display: grid;
           grid-auto-flow: column;
@@ -93,45 +111,20 @@ export default function SliderH(props) {
           width: 100%;
         }
 
-        .link {
-          user-select: none;
-          padding: 0 5%;
-        }
-
-        .slider-1 .link {
-          display: flex;
-          justify-content: flex-end;
-        }
-
         .slider-1 {
           display: grid;
           grid-template-rows: 3rem auto;
           height: ${props.height + "px"};
           width: 100vw;
-          }
+        }
+
+        .slider-1 .link {
+          justify-content: flex-end;
+        }
 
         .slider-1__contenedor {
           overflow-y: auto;
         }
-
-        .p1 {grid-area: p1;}
-        .p2 {
-          align-items: center;
-          background: #444;
-          color: #fff;
-          display: flex;
-          flex-direction: column;
-          grid-area: p2;
-          justify-content: center;
-          padding: 0.7rem;
-          text-align: center;
-        }
-        .p2 > h3 {margin-block-start: 01rem;margin-block-end: 1rem;}
-        .p2 a {border: 2px solid #fff4;padding: 0.5rem;transition: .3s;}
-        .p2 a:hover {background: #fff4;border-color: transparent:}
-        .p3 {grid-area: p3;}
-        .p4 {grid-area: p4;}
-        .p5 {grid-area: p5;}
 
         .slider-2 {
           display: grid;
@@ -140,12 +133,6 @@ export default function SliderH(props) {
           text-align: center;
           padding: 0 5%;
           width: 100vw;
-        }
-
-        .slider-2 .link {
-          align-items: center;
-          display: flex;
-          justify-content: space-between;
         }
 
         .slider-2__contenedor {
@@ -159,18 +146,11 @@ export default function SliderH(props) {
           margin: 1rem 0;
         }
 
-        .link__flecha {
-          align-items: center;
-          cursor: pointer;
-          display: flex;
-          font-size: 1.2rem;
-          margin-block-start: 0;
-          margin-block-end: 0;
-        }
-
-        .link__flecha > span {
-          font-size: 3rem;
-          margin: .3rem;
+        .slider-3 {
+          display: grid;
+          grid-template-rows: 3rem auto;
+          height: ${props.height + "px"};
+          width: 100vw;
         }
       `}</style>
     </div>
